@@ -188,7 +188,37 @@ UI:
 
 * CSS风格统一，参见style文件下的common.css
 
-#### 一些图片
+#### 一些图片(更多截图在截图文件夹中)
+主页
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E4%B8%BB%E9%A1%B5.png)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E5%88%86%E6%9E%90.png)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E5%8A%A0%E5%85%A5%E6%88%91%E4%BB%AC.png)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B.png)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E6%92%AD%E6%94%BE%E9%A1%B5.png)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E6%9C%80%E8%BF%91%E6%9B%B4%E6%96%B0.png)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/Course.png)
+
+手机端适配
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E6%89%8B%E6%9C%BA1.jpg)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E6%89%8B%E6%9C%BA2.jpg)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E6%89%8B%E6%9C%BA3.jpg)
+
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/Course.png)
+
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86_!.png)
+
+![Image text](https://raw.githubusercontent.com/wuruofeng/OnlineSchool/master/%E6%88%AA%E5%9B%BE/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86.png)
+
 
 
 
