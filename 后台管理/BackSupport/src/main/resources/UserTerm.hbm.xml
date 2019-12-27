@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.UserTerm" table="user_term" schema="onlineschool_v4">
+        <composite-id mapped="true" class="org.vo.UserTermPK">
+            <key-property name="termId">
+                <column name="term_id" sql-type="int(11)"/>
+            </key-property>
+            <key-property name="userId">
+                <column name="user_id" sql-type="int(11)"/>
+            </key-property>
+        </composite-id>
+        <property name="rate">
+            <column name="rate" sql-type="int(255)" not-null="true"/>
+        </property>
+        <many-to-one name="termByTermId" class="org.vo.Term" insert="false" update="false">
+            <column name="term_id"/>
+        </many-to-one>
+        <many-to-one name="userInfoByUserId" class="org.vo.UserInfo" insert="false" update="false">
+            <column name="user_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

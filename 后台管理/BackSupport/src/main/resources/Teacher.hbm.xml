@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.Teacher" table="teacher" schema="onlineschool_v4">
+        <id name="userid">
+            <column name="userid" sql-type="int(11)"/>
+        </id>
+        <property name="avatar">
+            <column name="avatar" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="job">
+            <column name="job" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <one-to-one name="userInfoByUserid" class="org.vo.UserInfo" cascade="all"/>
+        <set name="coursesByUserid" inverse="true">
+            <key>
+                <column name="teacher_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.Course"/>
+        </set>
+    </class>
+</hibernate-mapping>

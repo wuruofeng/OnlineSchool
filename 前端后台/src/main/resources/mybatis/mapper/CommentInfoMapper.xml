@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.miaozt.onlineschool.mapper.CommentInfoMapper" >
+    <resultMap id="BaseResultMap" type="cn.miaozt.onlineschool.model.CommentInfo" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="post_user_id" property="postUserId" jdbcType="INTEGER" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="chapter_id" property="chapterId" jdbcType="INTEGER" />
+        <result column="type" property="type" jdbcType="VARCHAR" />
+        <result column="post_time" property="postTime" jdbcType="DATE" />
+        <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+          id, post_user_id,content, chapter_id, type, post_time, parent_id
+    </sql>
+
+    <select id="getCommentByPostUserId" parameterType="java.lang.Long" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM comment_info
+        WHERE post_user_id=#{post_user_id}
+    </select>
+
+    <select id="getCommentByCommentId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM comment_info
+        WHERE id=#{id}
+    </select>
+
+    <select id="getCommentByChapterId" parameterType="java.lang.Long" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM comment_info
+        WHERE chapter_id=#{chapterId}
+    </select>
+
+    <delete id="deleteCommentByCommentId" parameterType="java.lang.Long">
+        DELETE
+        FROM comment_info
+        WHERE id=#{id}
+    </delete>
+
+    <update id="updateCommentByChapterId" parameterType="cn.miaozt.onlineschool.model.CommentInfo">
+        UPDATE comment_info
+        SET content=#{content}
+        where id=#{id}
+    </update>
+
+    <insert id="insComment" parameterType="cn.miaozt.onlineschool.model.CommentInfo">
+        INSERT INTO comment_info(post_user_id,content,chapter_id,type,post_time,parent_id)
+        VALUES(#{postUserId},#{content},#{chapterId},#{type},#{postTime},#{parentId})
+    </insert>
+
+</mapper>

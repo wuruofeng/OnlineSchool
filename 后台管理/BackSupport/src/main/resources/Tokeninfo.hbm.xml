@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.Tokeninfo" table="tokeninfo" schema="onlineschool_v4">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+            <generator class="identity"></generator>
+        </id>
+        <property name="token">
+            <column name="token" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="buildtime">
+            <column name="buildtime" sql-type="int(11)" not-null="true"/>
+        </property>
+        <many-to-one name="userInfoByUserId" class="org.vo.UserInfo">
+            <column name="user_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

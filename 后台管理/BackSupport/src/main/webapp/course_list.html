@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/icon.css">
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.min.js"></script>
+<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/datagrid/datagrid_course.js"></script>
+</head>
+<body>
+<div id="lay" class="easyui-layout"   style="width:100%;height:700px" noheader="true"  >
+    <div region="north"  title="课程查询"  style="height:100px" collapsible="false">
+       <form id="form"  method="post">
+            <br>
+               &nbsp;&nbsp;&nbsp;&nbsp;课程名: &nbsp;<input type="text" id ="search_title" name="title">
+             <a id="search" class="easyui-linkbutton" iconCls="icon-ok">查询</a>
+             <a id="clear" class="easyui-linkbutton" iconCls="icon-reset">重置</a>
+       </form>
+    </div>
+    <div region="center">
+         <table id="courseForm"></table>
+    </div>
+</div>
+ <div id="mydiv" class="easyui-window" style="width:360px;height:470px" title="课程新增" closable="true" closed="true"   modal="true"   draggable="false" resizable="false">
+	<form id="myform" method="post"  >
+			<table width="320px;" align="center" cellpadding="0" cellspacing="0">
+			
+				<tr>
+					<td align="right">课程名:</td>
+					<td><input type="text" name="title" class="easyui-validatebox" required="true" missingMessage="必填!" /></td>
+				</tr>
+				
+				<tr>
+					<td align="right">图像地址:</td>
+					<td><input name="img" class="easyui-filebox" prompt="选择一张图片" buttonText="选择" accept="image/png,image/jpeg,image/jp2" /></td>
+				</tr>
+				
+				<tr>
+					<td align="right">价格:</td>
+					<td><input type="text" name="price" class="easyui-validatebox" required=true validType="testDec" missingMessage="必填!" invalidMessage="请输入一位小数，两位小数或整数!" /></td>
+				</tr>
+				
+				<tr>
+					<td align="right">是否可收藏:</td>
+					<td>
+						是<input type="radio" checked="checked" name="isLike" value="1" />
+						否<input type="radio" name="isLike" value="0" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="right">级别:</td>
+					<td>
+						 入门<input type="radio" checked="checked" name="rank" value="入门" />
+						 中级<input type="radio" name="rank" value="中级" />
+						 高级<input type="radio" name="rank" value="高级" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="right">热度:</td>
+					<td><input type="text" name="number" class="easyui-validatebox" required=true validType="testNum" missingMessage="必填!" invalidMessage="请输入整数!" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">课程描述 :</td>
+					<td><textarea name="courseDesc" class="easyui-validatebox" style="height:120px;"></textarea></td>
+				</tr>
+
+				<tr>
+					<td align="right">是否完结 :</td>
+					<td>
+						是<input type="radio" checked="checked" name="isComplete" value="1" />
+						否<input type="radio" name="isComplete" value="0" />
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">奖励 :</td>
+					<td><input type="text" name="praise" class="easyui-validatebox" required=true validType="testNum" missingMessage="必填!" invalidMessage="请输入整数!" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">短标题 :</td>
+					<td><input type="text" name="shortTitle" class="easyui-validatebox" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">教师名称 :</td>
+					<td><input type="text" name="teacherName" class="easyui-validatebox" required=true validType="judgeTeacherName" missingMessage="教师必填!" invalidMessage="教师名不存在!" /></td>
+				</tr>
+
+				<tr align="center">
+					<td colspan="2">
+						<a id="btn_save" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+						<a id="btn_cancel" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+					</td>
+				</tr>
+
+			</table>
+	</form>
+</div>
+</body>
+</html>

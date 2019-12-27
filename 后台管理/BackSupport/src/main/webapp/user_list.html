@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/icon.css">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<!--	<script type="text/javascript" src="js/aliyun-oss-sdk.js"></script>-->
+	<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+<!--<script type="text/javascript" src="js/jquery.ajaxfileupload.js"></script>-->
+<script type="text/javascript" src="js/datagrid/datagrid_user.js"></script>
+</head>
+<body>
+<div id="lay" class="easyui-layout"   style="width:100%;height:700px" noheader="true"  >
+    <div region="north"  title="用户查询"  style="height:100px" collapsible="false">
+       <form id="form"  method="post">
+            <br>
+               &nbsp;&nbsp;&nbsp;&nbsp;用户名: &nbsp;<input type="text" id ="search_username" name="username">
+             <a id="search" class="easyui-linkbutton" iconCls="icon-ok">查询</a>
+             <a id="clear" class="easyui-linkbutton" iconCls="icon-reset">重置</a>
+       </form>
+    </div>
+    <div region="center">
+         <table id="userForm"></table>
+    </div>
+</div>
+ <div id="mydiv" class="easyui-window" style="width:340px;height:360px" title="用户新增" closable="true" closed="true"   modal="true"   draggable="false" resizable="false">
+	<form id="myform" method="post"  >
+			<table width="320px;" align="center" cellpadding="0" cellspacing="0">
+
+				<tr>
+					<td align="right">用户名:</td>
+					<td><input type="text" name="username" class="easyui-validatebox" required=true validType="midLength[4,16]" missingMessage="必填!" invalidMessage="用户名必须在4到16个字符之间!"  /></td>
+				</tr>
+
+				<tr>
+					<td align="right">密码:</td>
+					<td><input type="password" name="password" class="easyui-validatebox" required=true validType="midLength[6,20]" missingMessage="必填!" invalidMessage="用户名必须在6到20个字符之间!" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">邮箱:</td>
+					<td><input type="text" name="email" class="easyui-validatebox" required=true validType="jgEmail" missingMessage="必填" invalidMessage="请输入合法邮箱!" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">电话:</td>
+					<td><input type="text" name="tel" class="easyui-validatebox" required=true validType="jgTel" missingMessage="必填!" invalidMessage="电话必须是11位数字" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">性别:</td>
+					<td>
+						 男<input type="radio" checked="checked" name="sex" value="MAN" />
+						 女<input type="radio" name="sex" value="WOMAN" />
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">头像地址:</td>
+					<td><input name="avatar" class="easyui-filebox" prompt="选择一张图片" buttonText="选择" accept="image/png,image/jpeg,image/jp2" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">观看视频次数 :</td>
+					<td><input  type="text" name="totallyWatchingNum" class="easyui-validatebox" required=true validType="testNum" missingMessage="必填!" invalidMessage="必须为数字" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">观看视频时间 :</td>
+					<td><input type="text" name="totallyWatchingTimes" class="easyui-validatebox" required=true validType="testNum" missingMessage="必填!" invalidMessage="必须为数字" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">已获得经验值 :</td>
+					<td><input type="text" name="exp" class="easyui-validatebox" required=true validType="testNum" missingMessage="必填!" invalidMessage="必须为数字" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">是否为VIP :</td>
+					<td>
+						是<input type="radio" checked="checked" name="isVip" value="1" />
+						否<input type="radio" name="isVip" value="0" />
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">是否为教师 :</td>
+					<td>
+						是<input type="radio" checked="checked" name="isTeacher" value="1" />
+						否<input type="radio" name="isTeacher" value="0" />
+					</td>
+				</tr>
+
+				<tr align="center">
+					<td colspan="2">
+						<a id="btn_save" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+						<a id="btn_cancel" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+					</td>
+				</tr>
+
+			</table>
+	</form>
+</div>
+</body>
+</html>

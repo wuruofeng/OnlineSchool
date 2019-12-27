@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">这里填写你的数据库地址</property>
+    <property name="connection.driver_class">org.gjt.mm.mysql.Driver</property>
+    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <property name="connection.username">数据库账号</property>
+    <property name="connection.password">数据库密码</property>
+    <property name="hbm2ddl.auto">update</property>
+    <mapping resource="AdminInfo.hbm.xml"/>
+    <mapping class="org.vo.AdminInfo"/>
+    <mapping resource="Chapter.hbm.xml"/>
+    <mapping class="org.vo.Chapter"/>
+    <mapping resource="Course.hbm.xml"/>
+    <mapping class="org.vo.Course"/>
+    <mapping resource="CourseTag.hbm.xml"/>
+    <mapping class="org.vo.CourseTag"/>
+    <mapping resource="Tag.hbm.xml"/>
+    <mapping class="org.vo.Tag"/>
+    <mapping class="org.vo.Teacher"/>
+    <mapping resource="Teacher.hbm.xml"/>
+    <mapping resource="Term.hbm.xml"/>
+    <mapping class="org.vo.Term"/>
+    <mapping resource="Tokeninfo.hbm.xml"/>
+    <mapping class="org.vo.Tokeninfo"/>
+    <mapping resource="Type.hbm.xml"/>
+    <mapping class="org.vo.Type"/>
+    <mapping resource="UserCourse.hbm.xml"/>
+    <mapping class="org.vo.UserCourse"/>
+    <mapping resource="UserInfo.hbm.xml"/>
+    <mapping class="org.vo.UserInfo"/>
+    <mapping resource="UserTerm.hbm.xml"/>
+    <mapping class="org.vo.UserTerm"/>
+  </session-factory>
+</hibernate-configuration>

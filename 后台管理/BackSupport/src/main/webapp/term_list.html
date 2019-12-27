@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/icon.css">
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.min.js"></script>
+<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/datagrid/datagrid_term.js"></script>
+</head>
+<body>
+<div id="lay" class="easyui-layout"   style="width:100%;height:700px" noheader="true">
+    <div region="north"  title="视频查询"  style="height:100px" collapsible="false">
+       <form id="form" method="post">
+            <br>
+               &nbsp;&nbsp;&nbsp;&nbsp;视频名: &nbsp;<input type="text" id ="search_title" name="title">
+             <a id="search" class="easyui-linkbutton" iconCls="icon-ok">查询</a>
+             <a id="clear" class="easyui-linkbutton" iconCls="icon-reset">重置</a>
+       </form>
+    </div>
+    <div region="center">
+         <table id="termForm"></table>
+    </div>
+</div>
+ <div id="mydiv" class="easyui-window" style="width:360px;height:440px" title="课程新增" closable="true" closed="true"   modal="true"   draggable="false" resizable="false">
+	<form id="myform" method="post"  >
+			<table width="320px;" align="center" cellpadding="0" cellspacing="0">
+			
+				<tr>
+					<td align="right">视频名:</td>
+					<td><input type="text" name="title" class="easyui-validatebox" required="true" missingMessage="必填!" /></td>
+				</tr>
+				
+				<tr>
+					<td align="right">视频长度:</td>
+					<td><input type="text" name="duration" class="easyui-validatebox" required="true" missingMessage="必填!"  validType="testVideoLength"  invalidMessage="输入格式为MM:SS" /></td>
+				</tr>
+				
+				<tr>
+					<td align="right">视频地址:</td>
+					<td><input name="videoUrl" class="easyui-filebox" prompt="选择一个视频" buttonText="选择" accept="video/H261,video/3gpp,video/flexfec,video/mp4" /></td>
+				</tr>
+				
+				<tr>
+					<td align="right">视频描述:</td>
+					<td><textarea name="termDesc" class="easyui-validatebox"  style="height:120px;"></textarea></td>
+				</tr>
+
+				<tr>
+					<td align="right">idx:</td>
+					<td><input type="text" name="idx" class="easyui-validatebox" required="true" missingMessage="必填!"  validType="testNum"  invalidMessage="请输入数字" /></td>
+				</tr>
+				
+				<tr>
+					<td align="right">经验值:</td>
+					<td><input type="text" name="exp" class="easyui-validatebox" required="true" missingMessage="必填!"  validType="testNum"  invalidMessage="请输入数字" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">更新天 :</td>
+					<td><input type="text" name="updatedAtDay" class="easyui-validatebox" required="true" missingMessage="必填!" validType="testDay"  invalidMessage="请输入0-31" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">更新年月 :</td>
+					<td><input type="text" name="updatedAtYearMonth" class="easyui-validatebox" required="true" missingMessage="必填!" validType="testMonthAndYear" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">图像地址 :</td>
+					<td><input name="coverUrl" class="easyui-filebox" prompt="选择一张图片" buttonText="选择" accept="image/png,image/jpeg,image/jp2" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">课程ID :</td>
+					<td><input type="text" name="courseId" class="easyui-validatebox" required="true" missingMessage="必填!" /></td>
+				</tr>
+
+				<tr align="center">
+					<td colspan="2">
+						<a id="btn_save" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+						<a id="btn_cancel" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+					</td>
+				</tr>
+
+			</table>
+	</form>
+</div>
+</body>
+</html>

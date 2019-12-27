@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.CourseTag" table="course_tag" schema="onlineschool_v4">
+        <composite-id mapped="true" class="org.vo.CourseTagPK">
+            <key-property name="courseId">
+                <column name="course_id" sql-type="int(11)"/>
+            </key-property>
+            <key-property name="tagId">
+                <column name="tag_id" sql-type="int(11)"/>
+            </key-property>
+        </composite-id>
+        <property name="elt">
+            <column name="elt" sql-type="int(11)"/>
+        </property>
+        <many-to-one name="courseByCourseId" class="org.vo.Course" insert="false" update="false">
+            <column name="course_id"/>
+        </many-to-one>
+        <many-to-one name="tagByTagId" class="org.vo.Tag" insert="false" update="false">
+            <column name="tag_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

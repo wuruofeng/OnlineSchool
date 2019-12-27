@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.Term" table="term" schema="onlineschool_v4">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+            <generator class="identity"></generator>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="duration">
+            <column name="duration" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="videoUrl">
+            <column name="video_url" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="termDesc">
+            <column name="term_desc" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="idx">
+            <column name="idx" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="exp">
+            <column name="exp" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="updatedAtDay">
+            <column name="updated_at_day" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="updatedAtYearMonth">
+            <column name="updated_at_year_month" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="coverUrl">
+            <column name="cover_url" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="courseId">
+            <column name="course_id" sql-type="int(11)" not-null="false"/>
+        </property>
+        <many-to-one name="chapterByChapterId" class="org.vo.Chapter">
+            <column name="chapter_id" not-null="true"/>
+        </many-to-one>
+        <set name="userTermsById" inverse="true">
+            <key>
+                <column name="term_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.UserTerm"/>
+        </set>
+    </class>
+</hibernate-mapping>

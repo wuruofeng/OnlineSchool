@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.UserCourse" table="user_course" schema="onlineschool_v4">
+        <composite-id mapped="true" class="org.vo.UserCoursePK">
+            <key-property name="userid">
+                <column name="userid" sql-type="int(11)"/>
+            </key-property>
+            <key-property name="courseid">
+                <column name="courseid" sql-type="int(11)"/>
+            </key-property>
+        </composite-id>
+        <property name="lastPercent">
+            <column name="last_percent" sql-type="int(11)" not-null="true" />
+        </property>
+        <property name="lastChapterId">
+            <column name="last_chapter_id" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="rate">
+            <column name="rate" sql-type="int(255)" not-null="true"/>
+        </property>
+        <many-to-one name="userInfoByUserid" class="org.vo.UserInfo" insert="false" update="false">
+            <column name="userid"/>
+        </many-to-one>
+        <many-to-one name="courseByCourseid" class="org.vo.Course" insert="false" update="false">
+            <column name="courseid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

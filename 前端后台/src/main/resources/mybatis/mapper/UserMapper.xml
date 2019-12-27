@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.miaozt.onlineschool.mapper.UserMapper" >
+    <resultMap id="BaseResultMap" type="cn.miaozt.onlineschool.model.User" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="sex" property="sex" javaType="cn.miaozt.onlineschool.enums.UserSexEnum"/>
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="tel" property="tel" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+          id ,username, password, email, sex,tel
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+       SELECT 
+       <include refid="Base_Column_List" />
+	   FROM user_info
+    </select>
+
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT 
+       <include refid="Base_Column_List" />
+	   FROM user_info
+	   WHERE id = #{id}
+    </select>
+
+    <select id="getOneByUserName" parameterType="java.lang.String" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_info
+        WHERE username = #{username}
+    </select>
+
+    <select id="login" parameterType="java.lang.String" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_info
+        WHERE username = #{username} and password = #{password}
+    </select>
+
+    <insert id="insert" parameterType="cn.miaozt.onlineschool.model.User" >
+       INSERT INTO
+       		user_info
+       		(username,password,email,sex,tel)
+       	VALUES
+       		(#{username}, #{password}, #{email}, #{sex}, #{tel})
+    </insert>
+    
+    <update id="update" parameterType="cn.miaozt.onlineschool.model.User" >
+       UPDATE
+        user_info
+       SET 
+       	<if test="username != null">username = #{username},</if>
+       	<if test="password != null">password = #{password},</if>
+        <if test="sex != null">sex = #{sex},</if>
+        <if test="email != null">email = #{email},</if>
+        <if test="tel != null">tel = #{tel}</if>
+       WHERE 
+       		id = #{id}
+    </update>
+    
+    <delete id="delete" parameterType="java.lang.Long" >
+       DELETE FROM
+       		 user_info
+       WHERE 
+       		 id =#{id}
+    </delete>
+</mapper>

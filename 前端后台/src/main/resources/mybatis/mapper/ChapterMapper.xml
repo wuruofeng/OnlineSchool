@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.miaozt.onlineschool.mapper.ChapterInfoMapper" >
+    <resultMap id="BaseResultMap" type="cn.miaozt.onlineschool.model.ChapterInfo" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="course_id" property="courseId" jdbcType="INTEGER" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
+        <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="description_full" property="descriptionFull" jdbcType="VARCHAR" />
+        <result column="document_url" property="documentUrl" jdbcType="VARCHAR" />
+        <result column="created_at" property="createdAt" jdbcType="DATE" />
+        <result column="episode_duration" property="episodeDuration" jdbcType="VARCHAR" />
+        <result column="chapter_index" property="chapterIndex" jdbcType="VARCHAR" />
+        <result column="exp" property="exp" jdbcType="VARCHAR" />
+        <result column="is_free" property="isFree" javaType="cn.miaozt.onlineschool.enums.CourseIsFree"  />
+    </resultMap>
+    <sql id="Base_Column_List" >
+          id , course_id , title, video_url, image_url,description,description_full,document_url,
+          created_at,episode_duration,chapter_index,exp,is_free
+    </sql>
+    <!--更新了每次查询前10个章节的查询功能-->
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM chapter_info
+        order by created_at desc
+        limit 0,10
+    </select>
+
+    <!-- 通过courseId来查询章节信息 返回一个list-->
+    <select id="getByCourseId" parameterType="java.lang.Long" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM chapter_info
+        where  course_id= #{courseId}
+    </select>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM chapter_info
+        where  id=#{id}
+    </select>
+
+    <select id="getByCreatedAt" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM chapter_info
+        WHERE created_at=#{date}
+    </select>
+
+</mapper>

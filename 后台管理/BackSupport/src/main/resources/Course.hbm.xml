@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.Course" table="course" schema="onlineschool_v4">
+        <id name="courseId">
+            <column name="course_id" sql-type="int(11)"/>
+            <generator class="identity"></generator>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="img">
+            <column name="img" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="price">
+            <column name="price" sql-type="decimal(10,2)" precision="10" scale="2" not-null="false"/>
+        </property>
+        <property name="isLike">
+            <column name="is_like" sql-type="tinyint(1)" not-null="false"/>
+        </property>
+        <property name="rank">
+            <column name="rank" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="number">
+            <column name="number" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="courseDesc">
+            <column name="course_desc" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="isComplete">
+            <column name="is_complete" sql-type="tinyint(1)" not-null="false"/>
+        </property>
+        <property name="praise">
+            <column name="praise" sql-type="int(255)" not-null="false"/>
+        </property>
+        <property name="shortTitle">
+            <column name="short_title" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <many-to-one name="teacherByTeacherId" class="org.vo.Teacher" lazy="false">
+            <column name="teacher_id" not-null="false"/>
+        </many-to-one>
+        <set name="chaptersByCourseId" inverse="true">
+            <key>
+                <column name="course_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.Chapter"/>
+        </set>
+        <set name="courseTagsByCourseId" inverse="true">
+            <key>
+                <column name="course_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.CourseTag"/>
+        </set>
+        <set name="userCoursesByCourseId" inverse="true">
+            <key>
+                <column name="courseid"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.UserCourse"/>
+        </set>
+    </class>
+</hibernate-mapping>

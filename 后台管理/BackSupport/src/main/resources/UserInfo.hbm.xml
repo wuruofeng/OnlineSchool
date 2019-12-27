@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.UserInfo" table="user_info" schema="onlineschool_v4">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+            <generator class="identity"></generator>
+        </id>
+        <property name="username" not-null="true">
+            <column name="username" sql-type="varchar(255)"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="tel">
+            <column name="tel" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="sex">
+            <column name="sex" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="avatar">
+            <column name="avatar" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="totallyWatchingNum">
+            <column name="totally_watching_num" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="totallyWatchingTimes">
+            <column name="totally_watching_times" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="exp">
+            <column name="exp" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="isVip">
+            <column name="isVIP" sql-type="int(11)" not-null="false"/>
+        </property>
+        <one-to-one name="teacherById" class="org.vo.Teacher"  cascade="all"/>
+        <set name="tokeninfosById" inverse="true">
+            <key>
+                <column name="user_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.Tokeninfo"/>
+        </set>
+        <set name="userCoursesById" inverse="true">
+            <key>
+                <column name="userid"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.UserCourse"/>
+        </set>
+        <set name="userTermsById" inverse="true">
+            <key>
+                <column name="user_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.vo.UserTerm"/>
+        </set>
+    </class>
+</hibernate-mapping>

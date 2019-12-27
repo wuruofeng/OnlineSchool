@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.vo.AdminInfo" table="admin_info" schema="onlineschool_v4">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+            <generator class="identity"></generator>
+        </id>
+        <property name="adminName">
+            <column name="admin_name" sql-type="varchar(255)"/>
+        </property>
+        <property name="adminPassword">
+            <column name="admin_password" sql-type="varchar(255)"/>
+        </property>
+    </class>
+</hibernate-mapping>

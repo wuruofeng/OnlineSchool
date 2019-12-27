@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.miaozt.onlineschool.mapper.TokenMapper" >
+    <resultMap id="BaseResultMap" type="cn.miaozt.onlineschool.model.Token" >
+        <id column="token_id" property="tokenid" jdbcType="INTEGER" />
+        <result column="user_id" property="userid" jdbcType="INTEGER" />
+        <result column="token" property="token" jdbcType="VARCHAR" />
+        <result column="build_time" property="buildtime" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+          token_id , user_id , token, build_time
+    </sql>
+    <!--插入Token addToken(Token token) @yangchaoyi-->
+    <insert id="addToken" parameterType="cn.miaozt.onlineschool.model.Token" >
+       INSERT INTO
+       		tokeninfo
+       		(id,user_id,token,buildtime）
+       	VALUES
+       		(#{id}, #{user_id}, #{token}, #{buildtime})
+    </insert>
+    <!--更新功能 updataToken(Token token)  @yangchaoyi-->
+    <update id="updataToken" parameterType="cn.miaozt.onlineschool.model.Token" >
+        UPDATE
+        tokeninfo
+        SET
+        <if test="id != null">id = #{id},</if>
+        <if test="user_id != null">user_id = #{user_id},</if>
+        <if test="token != null">token = #{token},</if>
+        <if test="buildtime != null">buildtime = #{buildtime},</if>
+        WHERE
+        id = #{id}
+    </update>
+
+    <!--查找功能 findByUserId(int userid) @yangchaoyi-->
+    <select id="findByUserId" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM tokeninfo
+        where user_id = #{userid}
+    </select>
+
+
+
+
+</mapper>

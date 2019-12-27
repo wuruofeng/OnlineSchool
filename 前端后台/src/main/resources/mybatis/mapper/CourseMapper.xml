@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.miaozt.onlineschool.mapper.CourseInfoMapper" >
+    <resultMap id="BaseResultMap" type="cn.miaozt.onlineschool.model.CourseInfo" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="author_id" property="authorId" jdbcType="INTEGER" />
+        <result column="big_type" property="bigType" jdbcType="VARCHAR" />
+        <result column="image_url" property="imageUrl" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="is_free" property="isFree" javaType="cn.miaozt.onlineschool.enums.CourseIsFree" />
+        <result column="image_url" property="imageUrl" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdAt" jdbcType="DATE" />
+        <result column="is_over" property="isOver" javaType="cn.miaozt.onlineschool.enums.CourseIsOver" />
+        <result column="series_url" property="seriesUrl" jdbcType="VARCHAR" />
+        <result column="total_chapters" property="totalChapters" jdbcType="VARCHAR"/>
+        <result column="exp" property="exp" jdbcType="VARCHAR" />
+        <result column="description_full" property="descriptionFull" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+          id , author_id , big_type, image_url, description,title,is_free,image_url,created_at,is_over
+          ,series_url,total_chapters,exp,description_full
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM course_info
+    </select>
+
+    <select id="getById"  resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM course_info
+        WHERE id = #{id}
+    </select>
+
+
+    <select id="getBybigType" parameterType="java.lang.String" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM course_info
+        WHERE big_type = #{bigType}
+    </select>
+
+    <select id="getByType" parameterType="java.lang.String" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM course_info
+        WHERE big_type = #{type}
+    </select>
+</mapper>

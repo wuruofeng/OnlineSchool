@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">   
+<struts>
+    <package name="default" namespace="/" extends="json-default">
+        <action name="queryByAdminNameAction" class="org.action.AdminAction" method="queryByAdminName">
+            <result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+	            <param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+	            <param name="ignoreHierarchy">false</param>
+			</result>
+        </action>
+
+        <action name="queryByAdminNameAndAdminPasswordAction" class="org.action.AdminAction" method="queryByAdminNameAndAdminPassword">
+            <result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+	            <param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+	            <param name="ignoreHierarchy">false</param>
+			</result>
+        </action>
+
+		<action name="updateAdmin" class="org.action.AdminAction" method="updateAdmin">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+        <action name="queryUserByPage" class="org.action.UserAction" method="queryByPage">
+            <result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+	            <param name="ignoreHierarchy">false</param>
+			</result>
+        </action>
+
+        <action name="addUser" class="org.action.UserAction" method="addUser">
+            <result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+	            <param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+	            <param name="ignoreHierarchy">false</param>
+			</result>
+        </action>
+
+		<action name="deleteByUserId" class="org.action.UserAction" method="deleteUser">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryUserById" class="org.action.UserAction" method="queryById">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="updateUser" class="org.action.UserAction" method="updateUser">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryByUsername" class="org.action.UserAction" method="queryByUsername">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryByUsernameLikely" class="org.action.UserAction" method="queryByUsernameLikely">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryCourseByPage" class="org.action.CourseAction" method="queryByPage">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryCourseByCourseId" class="org.action.CourseAction" method="queryCourseByCourseId">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryByTeacherName" class="org.action.TeacherAction" method="queryByTeacherName">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="insertCourse" class="org.action.CourseAction" method="insertCourse">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="updateCourse" class="org.action.CourseAction" method="updateCourse">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="deleteCourse" class="org.action.CourseAction" method="deleteCourse">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryByCourseTitle" class="org.action.CourseAction" method="queryByCourseTitle">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryByCourseTitleLikely" class="org.action.CourseAction" method="queryByCourseTitleLikely">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryTermByPage" class="org.action.TermAction" method="queryTermByPage">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryTermByTermId" class="org.action.TermAction" method="queryTermByTermId">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="insertTerm" class="org.action.TermAction" method="insertTerm">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="updateTerm" class="org.action.TermAction" method="updateTerm">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="deleteTerm" class="org.action.TermAction" method="deleteTerm">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryByTermTitle" class="org.action.TermAction" method="queryByTermTitle">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<action name="queryByTermTitleLikely" class="org.action.TermAction" method="queryByTermTitleLikely">
+			<result name="success" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="fail" type="json">
+				<param name="root">jsonObj</param>
+				<param name="noCache">true</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+
+
+    </package>
+</struts>
