@@ -12,7 +12,7 @@
 
 #### 技术栈
 
-用户前端:Vue(模仿boxueio.com，感谢11和10大佬)
+用户前端:Vue
 
 用户后端:SSM（Spring+SpringMVC+MyBatis）
 
