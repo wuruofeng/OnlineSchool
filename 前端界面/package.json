@@ -20,7 +20,7 @@
     "cos-nodejs-sdk-v5": "^2.5.14",
     "element-ui": "^2.12.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-sass": "^4.13.0",
     "popper.js": "^1.16.0",
     "swiper": "^5.1.0",
