@@ -14,7 +14,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.7",
     "@material-ui/icons": "^4.5.1",
     "ali-oss": "^6.3.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "core-js": "^3.1.2",
     "cos-nodejs-sdk-v5": "^2.5.14",
